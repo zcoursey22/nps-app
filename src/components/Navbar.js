@@ -34,7 +34,7 @@ class Navbar extends Component {
     const NavbarContainer = styled.div`
       background: black;
       display: flex;
-      padding: 0 10px;
+      padding: 3px 10px;
       align-items: center;
       > * {
         flex-grow: 1;
@@ -92,7 +92,7 @@ class Navbar extends Component {
     const DropdownContent = styled.div`
       display: ${ this.state.menuOpen ? 'inline-block' : 'none' }
       position: absolute;
-      top: 29px;
+      top: 32px;
       border: 1px solid black;
       right: -13px;
       > * {

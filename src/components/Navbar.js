@@ -125,7 +125,7 @@ class Navbar extends Component {
           <DropdownContent>
             <NavLink onClick={ this.closeMenu } to="/parks/1">Yosemite</NavLink>
             <NavLink onClick={ this.closeMenu } to="/parks/2">Zion</NavLink>
-            <NavLink onClick={ this.closeMenu } to="/parks/3">Everglades</NavLink>
+            <NavLink onClick={ this.closeMenu } to="/parks/3">Big Bend</NavLink>
           </DropdownContent>
         </Dropdown>
       </NavbarContainer>

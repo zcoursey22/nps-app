@@ -1,31 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import parkData from '../sampleParkData';
 
-const Park = ({ match }) => {
-  return (
-    <div id="container">
-      <div id="header">
-        <h3>Header</h3>
-        <h1>Name</h1>
-        <h2>Location</h2>
-      </div>
-      <div id="info">
-        <h3>Information</h3>
-        <p>this is park {match.params.parkCode}</p>
-      </div>
-      <div id="weather">
-        <h3>Weather</h3>
-      </div>
-      <div id="map">
-        <h3>Map</h3>
-      </div>
-      <div id="trails">
-        <h3>Trails</h3>
-      </div>
-      <div id="nearby">
-        <h3>Nearby</h3>
-      </div>
-    </div>
-  );
+class Park extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      park: parkData[this.props.match.params.parkCode - 1],
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {  // when props change!
+    if (nextProps.match.params.parkCode !== this.props.match.params.parkCode) {
+      this.setState({
+        park: parkData[nextProps.match.params.parkCode - 1],
+      });
+    }
+  }
+
+  render() {
+    const ParkContainer = styled.div`
+      margin: 10px 10vw;
+      > div {
+        margin: 10px 0;
+      }
+    `;
+
+    return (
+      <ParkContainer>
+        <div>
+          <h1>{this.state.park.name} National Park</h1>
+          <h2>{this.state.park.states}</h2>
+        </div>
+        <div>
+          <p>{this.state.park.desc}</p>
+        </div>
+        <div>
+          Weather
+        </div>
+        <div>
+          Map
+        </div>
+        <div>
+          Trails
+        </div>
+        <div>
+          Nearby
+        </div>
+      </ParkContainer>
+    );
+  }
 }
 
 export default Park;

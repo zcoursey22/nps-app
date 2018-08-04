@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Banner from './park/Banner';
+import About from './park/About';
+import Weather from './park/Weather';
+import Alerts from './park/Alerts'
 import parkData from '../sampleParkData';
 
 class Park extends Component {
@@ -21,78 +25,50 @@ class Park extends Component {
   render() {
     const ParkContainer = styled.div`
       margin: 0 10vw;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: white;
       > div {
-        margin: 15px 0;
+        padding: 15px;
         > h3 {
-          padding-bottom: 5px;
+          padding: 5px;
         }
       }
     `;
 
-    const About = styled.div`
+    const Map = styled.div`
 
     `;
 
-    const Alerts = styled.div`
-      > ul {
-        padding-left: 21px;
-      }
-      > ul > li {
-        padding-bottom: 10px;
-      }
+    const Trails = styled.div`
+
     `;
 
-    const Weather = styled.div`
-      > div {
-        padding-bottom: 5px;
-      }
-    `;
+    const Nearby = styled.div`
 
-    const alerts = this.state.park.alerts.map((alert) => {
-      return (
-        <li>
-          <h4>{alert.title}</h4>
-          <p>{alert.description}</p>
-        </li>
-      );
-    });
+    `;
 
     return (
-      <ParkContainer id="park-container">
+      <ParkContainer>
         <div>
           <h1>{this.state.park.fullName}</h1>
           <h2>{this.state.park.states}</h2>
         </div>
-        <About>
-          <h3>About</h3>
-          <p>{this.state.park.description}</p>
-        </About>
-        <Alerts>
-          <h3>Alerts</h3>
-          <ul>{alerts}</ul>
-        </Alerts>
-        <Weather>
-          <h3>Weather</h3>
-          <div>
-            <p>Temperature: {this.state.park.weather.temp}F</p>
-            <p>Condition: {this.state.park.weather.conditions[0]}</p>
-            <p>Max: {this.state.park.weather.max}F</p>
-            <p>Min: {this.state.park.weather.min}F</p>
-            <p>Precipitation: {this.state.park.weather.precipitation}%</p>
-            <p>Humidity: {this.state.park.weather.humidity}%</p>
-            <p>Wind: {this.state.park.weather.wind}mph</p>
-          </div>
-          <p>{this.state.park.weatherInfo}</p>
-        </Weather>
-        <div>
+        <Banner park={this.state.park}></Banner>
+        <About park={this.state.park}></About>
+        <Weather park={this.state.park}></Weather>
+        <Alerts park={this.state.park}></Alerts>
+        <Map>
           <h3>Map</h3>
-        </div>
-        <div>
+        </Map>
+        <Trails>
           <h3>Trails</h3>
-        </div>
-        <div>
+        </Trails>
+        <Nearby>
           <h3>Nearby</h3>
-        </div>
+        </Nearby>
       </ParkContainer>
     );
   }

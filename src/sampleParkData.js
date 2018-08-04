@@ -12,6 +12,7 @@ export default [
     "url": "https://www.nps.gov/yose/index.htm",
     "weatherInfo": "Yosemite National Park covers nearly 1,200 square miles (3,100 square km) in the Sierra Nevada, with elevations ranging from about 2,000 feet (600 m) to 13,000 ft (4,000 m). Yosemite receives 95% of its precipitation between October and May (and over 75% between November and March). Most of Yosemite is blanketed in snow from about November through May. (Yosemite Valley can be rainy or snowy in any given winter storm.)",
     "name": "Yosemite",
+    "bannerImg": "https://viewfinder.expedia.com/wp-content/uploads/2016/06/0_PAN2011E-1230x356.jpg",
     "weather": {
       "temp": 85,
       "min": 74,
@@ -77,6 +78,7 @@ export default [
     "url": "https://www.nps.gov/zion/index.htm",
     "weatherInfo": "Zion is known for a wide range of weather conditions. Temperatures vary with changes in elevation and day/night temperatures may differ by over 30°F.\n\nIn summer, temperatures in Zion National Park often exceed 100°F/38°C. Zion experiences monsoons from mid-July into September that results in an increased risk of flash floods. Always be aware of the threat of storms and lightning and be prepared for a wide range of weather conditions. Winters are generally mild.",
     "name": "Zion",
+    "bannerImg": "https://www.rockymtnrefl.com/ZionCanyonOverlookcd472067227.jpg",
     "weather": {
       "temp": 77,
       "min": 70,
@@ -126,6 +128,7 @@ export default [
     "url": "https://www.nps.gov/bibe/index.htm",
     "weatherInfo": "Variable\n-- February through April often pleasant and comfortable temperatures.\n-- May through August is hot and can be stormy. Temperatures can reach well over 100 degrees in the lower elevations and along the river.\n-- September through January temperatures are cooler; the weather can turn cold any time during these months.",
     "name": "Big Bend",
+    "bannerImg": "https://www.imagesfromtexas.com/images/xl/Chisos-Mountains-November-Morning-Panorama-1.jpg",
     "weather": {
       "temp": 93,
       "min": 88,

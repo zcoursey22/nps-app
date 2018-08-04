@@ -17,12 +17,11 @@ class Weather extends Component {
       flex-flow: column wrap;
       align-items: center;
       justify-content: center;
-      // background: #f43; // red
-      // background: #0d6; // green
-      // background: #38f; // blue
+      // background: linear-gradient(#f54, #d21); // red
+      // background: linear-gradient(#38f, #05c); // blue
       // day colors
-      // background: #7ab; // rainy
-      background: #135; // night
+      // background: linear-gradient(#7ab, #478); // rainy
+      background: linear-gradient(#135, #012); // night
       border-radius: 0 50% 30% 0;
       > div {
         padding: 5px 0;

@@ -21,7 +21,7 @@ class Weather extends Component {
       // background: linear-gradient(#38f, #05c); // blue
       // day colors
       // background: linear-gradient(#7ab, #478); // rainy
-      background: linear-gradient(#135, #012); // night
+      background: linear-gradient(#012, #135); // night
       border-radius: 0 50% 30% 0;
       > div {
         padding: 5px 0;

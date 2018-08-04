@@ -47,8 +47,9 @@ class Weather extends Component {
         flex-shrink: 1;
         // background: rgba(0,0,0,0.4); // day
         background: rgba(255,255,255,0.8); // night
+        display: flex;
+        justify-content: space-evenly;
         > span {
-          padding: 0 10px;
           font-size: 28px;
         }
         > #max {

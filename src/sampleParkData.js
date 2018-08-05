@@ -18,7 +18,7 @@ export default [
       "temp": 85,
       "min": 74,
       "max": 89,
-      "conditions": ['clear'],
+      "conditions": 'cloudy',
       "wind": 12,
       "humidity": 64,
       "precipitation": 12
@@ -85,10 +85,10 @@ export default [
       "temp": 77,
       "min": 70,
       "max": 83,
-      "conditions": ['overcast', 'cloudy'],
+      "conditions": 'rainy',
       "wind": 8,
       "humidity": 79,
-      "precipitation": 32
+      "precipitation": 70
     },
     "alerts": [
       {
@@ -136,7 +136,7 @@ export default [
       "temp": 93,
       "min": 88,
       "max": 95,
-      "conditions": ['clear'],
+      "conditions": 'snowy',
       "wind": 10,
       "humidity": 45,
       "precipitation": 0

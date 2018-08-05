@@ -4,7 +4,52 @@ import styled from 'styled-components';
 class Weather extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      sky: [],
+      icon: '',
+    };
+  }
+
+  componentWillMount() {
+    this.setState({
+      sky: this.generateSky(),
+      icon: this.generateIcon(),
+    });
+    setInterval(() => {
+      this.setState({
+        sky: this.generateSky(),
+        icon: this.generateIcon(),
+      });
+    }, 1000);
+  }
+
+  generateSky() {
+    const hours = new Date().getHours();
+    const condition = this.props.park.weather.conditions;
+    if (condition === 'clear') {
+      if (hours >= 22 || hours < 5) return ['#012', '#135'];
+      if (hours >= 20) return ['#037', '#36a'];
+      if (hours < 10) return ['#5af', '#a7b'];
+      return ['#49f', '#38d'];
+    } else {
+      if (condition === 'rainy') return (hours >= 20 || hours < 5 ? ['#125', '#158'] : ['#579', '#69c']);
+      if (condition === 'snowy') return (hours >= 20 || hours < 5 ? ['#124', '#346'] : ['#48b', '#79c']);
+      return (hours >= 20 || hours < 5 ? ['#134', '#367'] : ['#478', '#7ab']);
+    }
+  }
+
+  generateIcon() {
+    const hours = new Date().getHours();
+    const condition = this.props.park.weather.conditions;
+    if (condition === 'clear') {
+      if (hours >= 20 || hours < 5) return 'https://image.flaticon.com/icons/svg/997/997096.svg';
+      if (hours < 10) return 'https://image.flaticon.com/icons/svg/136/136734.svg';
+      return 'https://image.flaticon.com/icons/svg/136/136723.svg';
+    } else {
+      if (condition === 'rainy') return 'https://image.flaticon.com/icons/svg/826/826957.svg';
+      if (condition === 'snowy') return 'https://image.flaticon.com/icons/svg/658/658690.svg';
+      return 'https://image.flaticon.com/icons/svg/136/136701.svg';
+    }
   }
 
   render() {
@@ -22,9 +67,7 @@ class Weather extends Component {
       justify-content: center;
       // background: linear-gradient(#f54, #d21); // red
       // background: linear-gradient(#38f, #05c); // blue
-      // day colors
-      // background: linear-gradient(#7ab, #478); // rainy
-      background: linear-gradient(#012, #135); // night
+      background: linear-gradient(${this.state.sky[0]},${this.state.sky[1]});
       border-radius: 0 50% 30% 0;
       > div {
         padding: 5px 0;
@@ -88,7 +131,7 @@ class Weather extends Component {
     return (
       <WeatherContainer>
         <div id="weather-icon">
-          <img src="https://image.flaticon.com/icons/png/512/124/124556.png"/>
+          <img src={this.state.icon}/>
         </div>
         <div id="temp">
           <span>{this.props.park.weather.temp}&deg;</span>

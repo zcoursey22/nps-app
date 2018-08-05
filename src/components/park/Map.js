@@ -16,22 +16,23 @@ class Map extends Component {
       justify-content: center;
     `;
 
-    const GoogleMapExample = withGoogleMap(props => (
-      <GoogleMap
-        defaultCenter = { { lat: this.props.park.lat, lng: this.props.park.long } }
-        defaultZoom = { 10 }
-      >
-      </GoogleMap>
-   ));
-
-    return (
-      <MapContainer>
-        <GoogleMapExample
-          containerElement={ <div style={{ height: `40vw`, minHeight: '450px',  width: '80vw', padding: ' 25px 0' }} /> }
-          mapElement={ <div style={{ height: `100%` }} /> }
-        />
-      </MapContainer>
-    );
+   //  const GoogleMapExample = withGoogleMap(props => (
+   //    <GoogleMap
+   //      defaultCenter = { { lat: this.props.park.lat, lng: this.props.park.long } }
+   //      defaultZoom = { 10 }
+   //    >
+   //    </GoogleMap>
+   // ));
+   //
+   //  return (
+   //    <MapContainer>
+   //      <GoogleMapExample
+   //        containerElement={ <div style={{ height: `40vw`, minHeight: '450px',  width: '80vw', padding: ' 25px 0' }} /> }
+   //        mapElement={ <div style={{ height: `100%` }} /> }
+   //      />
+   //    </MapContainer>
+   //  );
+   return <MapContainer><h3>Map</h3></MapContainer>
   }
 };
 

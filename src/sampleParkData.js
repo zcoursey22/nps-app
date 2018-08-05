@@ -15,10 +15,10 @@ export default [
     "name": "Yosemite",
     "bannerImg": "https://viewfinder.expedia.com/wp-content/uploads/2016/06/0_PAN2011E-1230x356.jpg",
     "weather": {
-      "temp": 85,
-      "min": 74,
-      "max": 89,
-      "conditions": 'cloudy',
+      "temp": 76,
+      "min": 71,
+      "max": 80,
+      "conditions": 'partially cloudy',
       "wind": 12,
       "humidity": 64,
       "precipitation": 12
@@ -133,11 +133,11 @@ export default [
     "name": "Big Bend",
     "bannerImg": "https://www.imagesfromtexas.com/images/xl/Chisos-Mountains-November-Morning-Panorama-1.jpg",
     "weather": {
-      "temp": 93,
-      "min": 88,
-      "max": 95,
-      "conditions": 'snowy',
-      "wind": 10,
+      "temp": 97,
+      "min": 92,
+      "max": 103,
+      "conditions": 'clear',
+      "wind": 7,
       "humidity": 45,
       "precipitation": 0
     },

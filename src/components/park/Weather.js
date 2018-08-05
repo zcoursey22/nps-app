@@ -10,11 +10,14 @@ class Weather extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       sky: this.generateSky(),
       icon: this.generateIcon(),
     });
+  }
+
+  componentWillMount() {
     setInterval(() => {
       this.setState({
         sky: this.generateSky(),
@@ -27,14 +30,15 @@ class Weather extends Component {
     const hours = new Date().getHours();
     const condition = this.props.park.weather.conditions;
     if (condition === 'clear') {
-      if (hours >= 22 || hours < 5) return ['#012', '#135'];
+      if (hours >= 22 || hours < 5) return ['#001', '#125'];
       if (hours >= 20) return ['#037', '#36a'];
       if (hours < 10) return ['#5af', '#a7b'];
       return ['#49f', '#38d'];
     } else {
-      if (condition === 'rainy') return (hours >= 20 || hours < 5 ? ['#125', '#158'] : ['#579', '#69c']);
-      if (condition === 'snowy') return (hours >= 20 || hours < 5 ? ['#124', '#346'] : ['#48b', '#79c']);
-      return (hours >= 20 || hours < 5 ? ['#134', '#367'] : ['#478', '#7ab']);
+      if (condition === 'partially cloudy') return (hours >= 20 || hours < 5 ? ['#001', '#245'] : ['#69e', '#58c']);
+      if (condition === 'rainy') return (hours >= 20 || hours < 5 ? ['#012', '#345'] : ['#679', '#79b']);
+      if (condition === 'snowy') return (hours >= 20 || hours < 5 ? ['#012', '#136'] : ['#48b', '#79c']);
+      return (hours >= 20 || hours < 5 ? ['#012', '#245'] : ['#478', '#7ab']);
     }
   }
 
@@ -45,6 +49,9 @@ class Weather extends Component {
       if (hours >= 20 || hours < 5) return 'https://image.flaticon.com/icons/svg/997/997096.svg';
       if (hours < 10) return 'https://image.flaticon.com/icons/svg/136/136734.svg';
       return 'https://image.flaticon.com/icons/svg/136/136723.svg';
+    } else if (condition === 'partially cloudy') {
+      if (hours >= 20 || hours < 5) return 'https://image.flaticon.com/icons/svg/414/414967.svg';
+      return 'https://image.flaticon.com/icons/svg/136/136722.svg';
     } else {
       if (condition === 'rainy') return 'https://image.flaticon.com/icons/svg/826/826957.svg';
       if (condition === 'snowy') return 'https://image.flaticon.com/icons/svg/658/658690.svg';
@@ -66,7 +73,6 @@ class Weather extends Component {
       align-items: center;
       justify-content: center;
       // background: linear-gradient(#f54, #d21); // red
-      // background: linear-gradient(#38f, #05c); // blue
       background: linear-gradient(${this.state.sky[0]},${this.state.sky[1]});
       border-radius: 0 50% 30% 0;
       > div {
@@ -91,20 +97,17 @@ class Weather extends Component {
         width: 100%;
         text-align: center;
         flex-shrink: 1;
-        // background: rgba(0,0,0,0.4); // day
-        background: rgba(255,255,255,0.8); // night
+        background: rgba(255,255,255,0.8);
         display: flex;
         justify-content: space-around;
         > span {
           font-size: 28px;
         }
         > #max {
-          // color: white; // day
-          color: black; // night
+          color: #3a3a3a;
         }
         > #min {
-          // color: #eaeaea; // day
-          color: #3a3a3a; // night
+          color: #555;
         }
       }
       > #other-weather {

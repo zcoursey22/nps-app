@@ -10,7 +10,10 @@ class Weather extends Component {
   render() {
     const WeatherContainer = styled.div`
       padding: 15px 0 !important;
-      border: 4px solid black;
+      // border: 4px solid black;
+      border: 1px solid #ddd;
+      box-shadow: 2px 2px 4px 1px #bbb, -6px 2px 4px 1px #aaa;
+      overflow: hidden;
       border-left: 0;
       flex-basis: 25%;
       display: flex;

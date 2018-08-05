@@ -16,16 +16,14 @@ class Navbar extends Component {
 
   toggleMenu() {
     this.setState({
-      menuOpen: !this.state.menuOpen,
-      menuTitle: this.state.menuTitle === 'Parks' ? 'Close' : 'Parks',
+      menuOpen: !this.state.menuOpen
     });
   }
 
   closeMenu() {
     if (this.state.menuOpen) {
       this.setState({
-        menuOpen: false,
-        menuTitle: 'Parks',
+        menuOpen: false
       });
     }
   }
@@ -34,8 +32,13 @@ class Navbar extends Component {
     const NavbarContainer = styled.div`
       background: black;
       display: flex;
+      top: 0;
+      height: 40px;
+      position: fixed;
+      width: 100%;
       padding: 3px 10px;
       align-items: center;
+      border-bottom: 1px solid #ddd;
       > * {
         flex-grow: 1;
         flex-basis: 0;
@@ -81,6 +84,7 @@ class Navbar extends Component {
       text-align: center;
       display: inline;
       padding: 5px 10px;
+      line-height: 10px;
       cursor: pointer;
       color: white;
       float: right;
@@ -92,40 +96,52 @@ class Navbar extends Component {
     const DropdownContent = styled.div`
       display: ${ this.state.menuOpen ? 'inline-block' : 'none' }
       position: absolute;
-      top: 32px;
-      border: 1px solid black;
+      top: 29.5px;
       right: -13px;
+      border-top: 1px solid #ddd;
+      border-bottom-left-radius: 50px;
       > * {
-        border: 1px solid black;
-        background: #eee;
-        padding: 5px 15px;
+        border: 1px solid #ddd;
+        border-top: 0;
+        background: white;
+        padding: 5px 25px;
         margin: 0 auto;
         display: block;
         color: black;
         text-align: right;
         &:hover {
-          background: #ddd;
+          background: #f7f7f7;
+        }
+        &:last-child {
+          border-bottom-left-radius: 50px;
         }
       }
     `;
+
+    let menu = null;
+    if (!this.state.menuOpen) {
+      menu = <span>&#9776; Parks</span>
+    } else {
+      menu = <span>&#x2715; Parks</span>
+    }
 
     return (
       <NavbarContainer>
         <Logo src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/US-NationalParkService-Logo.svg/184px-US-NationalParkService-Logo.svg.png"></Logo>
         <Title>National Park App</Title>
         <MainLinks>
-          <NavLink onClick={ this.closeMenu } to="/">Home</NavLink>
-          <NavLink onClick={ this.closeMenu } to="/about">About</NavLink>
-          <NavLink onClick={ this.closeMenu } to="/contact">Contact</NavLink>
+          <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/">Home</NavLink>
+          <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/about">About</NavLink>
+          <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/contact">Contact</NavLink>
         </MainLinks>
         <Dropdown>
           <DropdownButton onClick={ this.toggleMenu }>
-            &#9776;&nbsp;{this.state.menuTitle}
+            {menu}
           </DropdownButton>
           <DropdownContent>
-            <NavLink onClick={ this.closeMenu } to="/parks/1">Yosemite</NavLink>
-            <NavLink onClick={ this.closeMenu } to="/parks/2">Zion</NavLink>
-            <NavLink onClick={ this.closeMenu } to="/parks/3">Big Bend</NavLink>
+            <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/parks/1">Yosemite</NavLink>
+            <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/parks/2">Zion</NavLink>
+            <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/parks/3">Big Bend</NavLink>
           </DropdownContent>
         </Dropdown>
       </NavbarContainer>

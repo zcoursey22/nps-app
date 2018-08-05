@@ -25,6 +25,7 @@ class Park extends Component {
   render() {
     const ParkContainer = styled.div`
       margin: 0 10vw;
+      overflow: hidden;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;

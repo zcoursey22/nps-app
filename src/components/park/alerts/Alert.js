@@ -27,7 +27,7 @@ class Alert extends Component {
       background: #eaeaea;
       border: 1px solid #ddd;
       border-radius: 3px;
-      box-shadow: 4px 4px 5px 1px #bbb;
+      box-shadow: 2px 2px 4px 1px #aaa;
       &:hover {
         cursor: pointer;
         > div {
@@ -46,10 +46,14 @@ class Alert extends Component {
         flex-grow: 0;
         padding: 0;
         align-self: stretch;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
         > img {
           width: 50px;
           padding: 10px 15px;
           background: white;
+          border-top-right-radius: 3px;
+          border-bottom-right-radius: 3px;
         }
       }
       > div {

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Banner from './park/Banner';
 import About from './park/About';
 import Weather from './park/Weather';
-import Alerts from './park/Alerts'
+import Alerts from './park/Alerts';
+import Map from './park/Map';
 import parkData from '../sampleParkData';
 
 class Park extends Component {
@@ -39,18 +40,6 @@ class Park extends Component {
       }
     `;
 
-    const Map = styled.div`
-
-    `;
-
-    const Trails = styled.div`
-
-    `;
-
-    const Nearby = styled.div`
-
-    `;
-
     return (
       <ParkContainer>
         <div>
@@ -61,15 +50,7 @@ class Park extends Component {
         <About park={this.state.park}></About>
         <Weather park={this.state.park}></Weather>
         <Alerts park={this.state.park}></Alerts>
-        <Map>
-          <h3>Map</h3>
-        </Map>
-        <Trails>
-          <h3>Trails</h3>
-        </Trails>
-        <Nearby>
-          <h3>Nearby</h3>
-        </Nearby>
+        <Map park={this.state.park}></Map>
       </ParkContainer>
     );
   }

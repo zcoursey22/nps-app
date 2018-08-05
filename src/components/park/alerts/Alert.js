@@ -21,6 +21,7 @@ class Alert extends Component {
   render() {
     const AlertContainer = styled.li`
       margin: 15px;
+      margin-bottom: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -28,6 +29,9 @@ class Alert extends Component {
       border: 1px solid #ddd;
       border-radius: 3px;
       box-shadow: 2px 2px 4px 1px #aaa;
+      &:first-child {
+        margin-top: 0;
+      }
       &:hover {
         cursor: pointer;
         > div {

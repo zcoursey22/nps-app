@@ -20,7 +20,6 @@ class Alerts extends Component {
 
     return (
       <AlertsContainer>
-        <h3>Alerts</h3>
         <ul>{alerts}</ul>
       </AlertsContainer>
     );

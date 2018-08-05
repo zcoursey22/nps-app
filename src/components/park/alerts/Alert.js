@@ -24,12 +24,18 @@ class Alert extends Component {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #eee;
+      background: #eaeaea;
       border: 1px solid #ddd;
       border-radius: 3px;
       box-shadow: 4px 4px 5px 1px #bbb;
       &:hover {
         cursor: pointer;
+        > div {
+          background: #f7f7f7;
+        }
+        > div#arrow > img {
+          background: #f7f7f7;
+        }
       }
       > img#icon {
         width: 50px;
@@ -53,9 +59,12 @@ class Alert extends Component {
         > p {
           font-size: 15px;
           display: ${this.state.expanded ? 'auto' : 'none'}
+          padding-top: 5px;
+          padding-bottom: 3px;
         }
         > a {
           color: #666;
+          font-size: 14px;
           text-decoration: underline;
           display: ${this.state.expanded ? 'auto' : 'none'}
           &:hover {

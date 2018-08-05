@@ -14,10 +14,6 @@ class Map extends Component {
       width: 100%;
       display: flex;
       justify-content: center;
-      > p {
-        padding: 5px;
-        font-size: 15px;
-      }
     `;
 
     const GoogleMapExample = withGoogleMap(props => (

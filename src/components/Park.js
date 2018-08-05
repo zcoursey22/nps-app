@@ -34,7 +34,15 @@ class Park extends Component {
       background: white;
       > div {
         padding: 15px;
+        > h1 {
+          font-family: 'Roboto', san-serif;
+          font-size: 40px;
+        }
+        > h2 {
+          font-size: 30px;
+        }
         > h3 {
+          font-size: 24px;
           padding: 5px;
         }
       }

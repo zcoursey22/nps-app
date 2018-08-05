@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Alert from './alerts/Alert';
 
 class Alerts extends Component {
   constructor(props) {
@@ -11,24 +12,11 @@ class Alerts extends Component {
     const AlertsContainer = styled.div`
       flex-basis: 75%;
       > ul {
-        padding-left: 26px;
-        > li {
-          padding: 5px;
-          > p {
-            font-size: 15px;
-          }
-        }
+        list-style: none;
       }
     `;
 
-    const alerts = this.props.park.alerts.map((alert) => {
-      return (
-        <li>
-          <h4>{alert.title}</h4>
-          <p>{alert.description}</p>
-        </li>
-      );
-    });
+    const alerts = this.props.park.alerts.map((alert) => <Alert alert={alert} />);
 
     return (
       <AlertsContainer>

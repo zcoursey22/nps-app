@@ -48,7 +48,7 @@ class Weather extends Component {
         // background: rgba(0,0,0,0.4); // day
         background: rgba(255,255,255,0.8); // night
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         > span {
           font-size: 28px;
         }

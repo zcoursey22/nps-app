@@ -28,8 +28,12 @@ class Weather extends Component {
 
   generateSky() {
     const hours = new Date().getHours();
+    const weather = this.props.park.weather
     const condition = this.props.park.weather.conditions;
-    if (condition === 'clear') {
+    if ((weather.max > 100 && weather.min > 85) || weather.temp > 95) {
+      return (hours >= 20 || hours < 5 ? ['#100', '#900'] : ['#f54', '#d21']);
+    }
+    else if (condition === 'clear') {
       if (hours >= 22 || hours < 5) return ['#001', '#125'];
       if (hours >= 20) return ['#037', '#36a'];
       if (hours < 10) return ['#5af', '#a7b'];
@@ -71,7 +75,6 @@ class Weather extends Component {
       flex-flow: column wrap;
       align-items: center;
       justify-content: center;
-      // background: linear-gradient(#f54, #d21); // red
       background: linear-gradient(${this.state.sky[0]},${this.state.sky[1]});
       border-radius: 0 50% 30% 0;
       > div {

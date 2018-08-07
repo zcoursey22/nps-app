@@ -23,7 +23,7 @@ class Weather extends Component {
         sky: this.generateSky(),
         icon: this.generateIcon(),
       });
-    }, 1000);
+    }, 100);
   }
 
   generateSky() {
@@ -34,8 +34,8 @@ class Weather extends Component {
       return (hours >= 20 || hours < 5 ? ['#100', '#900'] : ['#f54', '#d21']);
     }
     else if (condition === 'clear') {
-      if (hours >= 22 || hours < 5) return ['#001', '#125'];
-      if (hours >= 20) return ['#037', '#36a'];
+      if (hours >= 20 || hours < 5) return ['#001', '#125'];
+      // if (hours >= 20) return ['#037', '#36a'];
       if (hours < 11) return ['#5af', '#a7b'];
       return ['#49f', '#38d'];
     } else {

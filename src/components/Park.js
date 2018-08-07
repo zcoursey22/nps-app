@@ -58,7 +58,7 @@ class Park extends Component {
       <ParkContainer>
         <div>
           <h1>{this.state.park.fullName}</h1>
-          <h2>{this.state.park.states}</h2>
+          <h2>{this.state.park.states.join(', ')}</h2>
         </div>
         <Banner park={this.state.park}></Banner>
         <About park={this.state.park}></About>

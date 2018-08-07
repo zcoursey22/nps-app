@@ -153,20 +153,20 @@ export default [
     ]
   },
   {
-    "states": ['TN'],
-    "lat": 57,
-    "long": -76,
-    "description": "There is a place in Far West Texas where night skies are dark as coal and rivers carve temple-like canyons in ancient limestone. Here, at the end of the road, hundreds of bird species take refuge in a solitary mountain range surrounded by weather-beaten desert. Tenacious cactus bloom in sublime southwestern sun, and diversity of species is the best in the country. This magical place is Big Bend...",
+    "states": ['NC','TN'],
+    "lat": 35.60116374,
+    "long": -83.50818326,
+    "description": "Ridge upon ridge of forest straddles the border between North Carolina and Tennessee in Great Smoky Mountains National Park. World renowned for its diversity of plant and animal life, the beauty of its ancient mountains, and the quality of its remnants of Southern Appalachian mountain culture, this is America's most visited national park.",
     "designation": "National Park",
     "parkCode": "grsm",
-    "id": "C9056F71-7162-4208-8AE9-255555A594FD",
-    "directionsInfo": "Hwy 118 south from Alpine; Hwy 385 south from Marathon; FM 170 from Presidio through Study Butte.",
-    "directionsUrl": "http://www.nps.gov/bibe/planyourvisit/directions.htm",
+    "id": "D9819727-18DF-4A84-BDDE-D4F2696DE340",
+    "directionsInfo": "Great Smoky Mountains National Park straddles the borders of the states of Tennessee and North Carolina. The three main entrances to the park are in the Gatlinburg, TN; Townsend, TN; and Cherokee, NC.",
+    "directionsUrl": "http://www.nps.gov/grsm/planyourvisit/directions.htm",
     "fullName": "Great Smoky Mountains National Park",
     "url": "https://www.nps.gov/grsm/index.htm",
-    "weatherInfo": "Variable\n-- February through April often pleasant and comfortable temperatures.\n-- May through August is hot and can be stormy. Temperatures can reach well over 100 degrees in the lower elevations and along the river.\n-- September through January temperatures are cooler; the weather can turn cold any time during these months.",
+    "weatherInfo": "Elevations in the park range from approximately 875 feet to 6,643 feet and the topography can drastically affect local weather. Temperatures can vary 10-20 degrees Fahrenheit from mountain base to top, and clear skies lower down do not guarantee equally pleasant weather at higher elevations. Visit http://www.nps.gov/grsm/planyourvisit/weather.htm for seasonal weather information and links to local forecasts.",
     "name": "Great Smoky Mountains",
-    "bannerImg": "https://www.imagesfromtexas.com/images/xl/Chisos-Mountains-November-Morning-Panorama-1.jpg",
+    "bannerImg": "http://tncabingetaways.com/images/foothillsBanner.jpg",
     "weather": {
       "temp": 75,
       "min": 68,
@@ -178,18 +178,10 @@ export default [
     },
     "alerts": [
       {
-        "title": "Rock slides along Highway 6",
-        "id": "AF725348-155D-451F-67361233F4544444",
-        "description": "Visitors are encouraged to limit personal water use to 5 gallons per person, per day. Consider bringing your own water into the park and refilling RV tanks outside the park.",
+        "title": "Rainbow Falls Trail Closed Monday-Thursday for trail rehabilitation",
+        "id": "B69D76DA-1DD8-B71B-0BF685DA8AB7949B",
+        "description": "Rainbow Falls Trail will be closed 7:00 am Monday until 5:30 pm Thursday weekly through November 15 for trail rehabilitation. The trail will be open Fridays, Saturdays, Sundays and federal holidays.",
         "category": "Park Closure",
-        "url": "",
-        "parkCode": "grsm"
-      },
-      {
-        "title": "Bird Migrations in Western Valley",
-        "id": "AF725348-155D-451F-67361233F4666666",
-        "description": "Visitors are encouraged to limit personal water use to 5 gallons per person, per day. Consider bringing your own water into the park and refilling RV tanks outside the park.",
-        "category": "Information",
         "url": "",
         "parkCode": "grsm"
       }

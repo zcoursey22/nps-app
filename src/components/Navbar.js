@@ -127,7 +127,7 @@ class Navbar extends Component {
 
     const parks = this.props.parks.map((park, i) => {
       return (
-        <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to={`/parks/${i + 1}`}>{park.name}</NavLink>
+        <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to={`/parks/${park.parkCode}`}>{park.name}</NavLink>
       );
     });
 

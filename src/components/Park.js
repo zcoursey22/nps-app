@@ -11,15 +11,21 @@ class Park extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      park: parkData[this.props.match.params.parkCode - 1],
+      park: this.getPark(this.props.match.params.parkCode)
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.parkCode !== this.props.match.params.parkCode) {
       this.setState({
-        park: parkData[nextProps.match.params.parkCode - 1],
+        park: this.getPark(nextProps.match.params.parkCode)
       });
+    }
+  }
+
+  getPark(parkCode) {
+    for (var i = 0; i < parkData.length; i++) {
+      if (parkData[i].parkCode === parkCode) return parkData[i];
     }
   }
 

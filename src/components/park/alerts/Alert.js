@@ -93,13 +93,18 @@ class Alert extends Component {
       );
     }
 
+    let url = null;
+    if (this.props.alert.url) {
+      url = <a target="_blank" href={this.props.alert.url}>Read more</a>
+    }
+
     return (
       <AlertContainer onClick={e => this.clickHandler(e)}>
         {icon}
         <div>
           <h4>{this.props.alert.title}</h4>
           <p>{this.props.alert.description}</p>
-          <a target="_blank" href={this.props.alert.url}>Read more</a>
+          {url}
         </div>
         <div id="arrow">
           {<img src={this.state.expanded ? 'https://www.iconsdb.com/icons/preview/light-gray/arrow-204-xxl.png' : 'https://www.iconsdb.com/icons/preview/light-gray/arrow-25-xxl.png'} />}

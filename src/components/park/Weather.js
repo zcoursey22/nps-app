@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import config from '../../config.js';
 import styled from 'styled-components';
 
 class Weather extends Component {
@@ -7,6 +9,11 @@ class Weather extends Component {
     this.state = {
       sky: [],
       icon: '',
+      weather: {
+        weather: [{main: ''}],
+        main: {temp: 75},
+        wind: {speed: 0}
+      }
     };
   }
 
@@ -18,6 +25,7 @@ class Weather extends Component {
   }
 
   componentWillMount() {
+    this.getWeather();
     setInterval(() => {
       this.setState({
         sky: this.generateSky(),
@@ -26,30 +34,41 @@ class Weather extends Component {
     }, 100);
   }
 
+  getWeather() {
+    const url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.props.park.lat}&lon=${this.props.park.long}&APPID=${config.openWeatherMap}&units=imperial`;
+    axios.get(url)
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          weather: res.data
+        });
+      });
+  }
+
   generateSky() {
     const hours = new Date().getHours();
-    const weather = this.props.park.weather
-    const condition = this.props.park.weather.conditions;
-    if ((weather.max > 100 && weather.min > 85) || weather.temp > 95) {
+    const weather = this.state.weather.main;
+    const condition = this.state.weather.weather[0].main;
+    if ((weather.temp_max > 100 && weather.temp_min > 85) || weather.temp > 95) {
       return (hours >= 20 || hours < 5 ? ['#100', '#900'] : ['#f54', '#d21']);
     }
-    else if (condition === 'clear') {
+    else if (condition === 'Clear') {
       if (hours >= 20 || hours < 5) return ['#001', '#125'];
       // if (hours >= 20) return ['#037', '#36a'];
       if (hours < 11) return ['#5af', '#a7b'];
       return ['#49f', '#38d'];
     } else {
       if (condition === 'partially cloudy') return (hours >= 20 || hours < 5 ? ['#001', '#245'] : ['#69e', '#58c']);
-      if (condition === 'rainy') return (hours >= 20 || hours < 5 ? ['#012', '#345'] : ['#679', '#79b']);
-      if (condition === 'snowy') return (hours >= 20 || hours < 5 ? ['#012', '#136'] : ['#48b', '#79c']);
+      if (condition === 'Rain') return (hours >= 20 || hours < 5 ? ['#012', '#345'] : ['#679', '#79b']);
+      if (condition === 'Snow') return (hours >= 20 || hours < 5 ? ['#012', '#136'] : ['#48b', '#79c']);
       return (hours >= 20 || hours < 5 ? ['#012', '#245'] : ['#478', '#7ab']);
     }
   }
 
   generateIcon() {
     const hours = new Date().getHours();
-    const condition = this.props.park.weather.conditions;
-    if (condition === 'clear') {
+    const condition = this.state.weather.weather[0].main;
+    if (condition === 'Clear') {
       if (hours >= 20 || hours < 5) return 'https://image.flaticon.com/icons/svg/997/997096.svg';
       if (hours < 11) return 'https://image.flaticon.com/icons/svg/136/136734.svg';
       return 'https://image.flaticon.com/icons/svg/136/136723.svg';
@@ -57,8 +76,8 @@ class Weather extends Component {
       if (hours >= 20 || hours < 5) return 'https://image.flaticon.com/icons/svg/414/414967.svg';
       return 'https://image.flaticon.com/icons/svg/136/136722.svg';
     } else {
-      if (condition === 'rainy') return 'https://image.flaticon.com/icons/svg/826/826957.svg';
-      if (condition === 'snowy') return 'https://image.flaticon.com/icons/svg/658/658690.svg';
+      if (condition === 'Rain') return 'https://image.flaticon.com/icons/svg/826/826957.svg';
+      if (condition === 'Snow') return 'https://image.flaticon.com/icons/svg/658/658690.svg';
       return 'https://image.flaticon.com/icons/svg/136/136701.svg';
     }
   }
@@ -139,11 +158,11 @@ class Weather extends Component {
           <img src={this.state.icon}/>
         </div>
         <div id="temp">
-          <span>{this.props.park.weather.temp}&deg;</span>
+          <span>{Math.round(this.state.weather.main.temp)}&deg;</span>
         </div>
         <div id="max-min">
-          <span id="max">{this.props.park.weather.max}&deg;</span>
-          <span id="min">{this.props.park.weather.min}&deg;</span>
+          <span id="max">{Math.round(this.state.weather.main.temp_max)}&deg;</span>
+          <span id="min">{Math.round(this.state.weather.main.temp_min)}&deg;</span>
         </div>
         <div id="other-weather">
           <div>
@@ -152,7 +171,7 @@ class Weather extends Component {
           </div>
           <div>
             <img src="https://www.iconsdb.com/icons/preview/white/wind-turbine-xxl.png"/>
-            <p>{this.props.park.weather.wind}mph</p>
+            <p>{this.state.weather.wind.speed}mph</p>
           </div>
         </div>
       </WeatherContainer>

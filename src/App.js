@@ -9,16 +9,25 @@ import Error from './components/Error';
 import Navbar from './components/Navbar';
 import Park from './components/Park';
 
+import parkData from './sampleParkData';
+
 const Body = styled.div`
   margin-top: 38px;
 `;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      parks: parkData
+    };
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div>
-          <Navbar />
+          <Navbar parks={this.state.parks}/>
           <Body>
             <Switch>
               <Route path="/" component={Home} exact />

@@ -8,7 +8,7 @@ class Navbar extends Component {
     super(props);
     this.state = {
       menuOpen: false,
-      menuTitle: 'Parks'
+      menuTitle: 'Parks',
     };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
@@ -125,6 +125,12 @@ class Navbar extends Component {
       menu = <span>&#x2715; Parks</span>
     }
 
+    const parks = this.props.parks.map((park, i) => {
+      return (
+        <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to={`/parks/${i + 1}`}>{park.name}</NavLink>
+      );
+    });
+
     return (
       <NavbarContainer>
         <Logo src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/US-NationalParkService-Logo.svg/184px-US-NationalParkService-Logo.svg.png"></Logo>
@@ -139,9 +145,7 @@ class Navbar extends Component {
             {menu}
           </DropdownButton>
           <DropdownContent>
-            <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/parks/1">Yosemite</NavLink>
-            <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/parks/2">Zion</NavLink>
-            <NavLink onClick={ () => {this.closeMenu(); window.scrollTo(0, 0);} } to="/parks/3">Big Bend</NavLink>
+            {parks}
           </DropdownContent>
         </Dropdown>
       </NavbarContainer>

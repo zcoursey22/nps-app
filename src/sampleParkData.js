@@ -151,5 +151,48 @@ export default [
         "parkCode": "bibe"
       }
     ]
+  },
+  {
+    "states": ['TN'],
+    "lat": 57,
+    "long": -76,
+    "description": "There is a place in Far West Texas where night skies are dark as coal and rivers carve temple-like canyons in ancient limestone. Here, at the end of the road, hundreds of bird species take refuge in a solitary mountain range surrounded by weather-beaten desert. Tenacious cactus bloom in sublime southwestern sun, and diversity of species is the best in the country. This magical place is Big Bend...",
+    "designation": "National Park",
+    "parkCode": "grsm",
+    "id": "C9056F71-7162-4208-8AE9-255555A594FD",
+    "directionsInfo": "Hwy 118 south from Alpine; Hwy 385 south from Marathon; FM 170 from Presidio through Study Butte.",
+    "directionsUrl": "http://www.nps.gov/bibe/planyourvisit/directions.htm",
+    "fullName": "Great Smoky Mountains National Park",
+    "url": "https://www.nps.gov/grsm/index.htm",
+    "weatherInfo": "Variable\n-- February through April often pleasant and comfortable temperatures.\n-- May through August is hot and can be stormy. Temperatures can reach well over 100 degrees in the lower elevations and along the river.\n-- September through January temperatures are cooler; the weather can turn cold any time during these months.",
+    "name": "Great Smoky Mountains",
+    "bannerImg": "https://www.imagesfromtexas.com/images/xl/Chisos-Mountains-November-Morning-Panorama-1.jpg",
+    "weather": {
+      "temp": 75,
+      "min": 68,
+      "max": 81,
+      "conditions": 'clear',
+      "wind": 6,
+      "humidity": 26,
+      "precipitation": 15
+    },
+    "alerts": [
+      {
+        "title": "Rock slides along Highway 6",
+        "id": "AF725348-155D-451F-67361233F4544444",
+        "description": "Visitors are encouraged to limit personal water use to 5 gallons per person, per day. Consider bringing your own water into the park and refilling RV tanks outside the park.",
+        "category": "Park Closure",
+        "url": "",
+        "parkCode": "grsm"
+      },
+      {
+        "title": "Bird Migrations in Western Valley",
+        "id": "AF725348-155D-451F-67361233F4666666",
+        "description": "Visitors are encouraged to limit personal water use to 5 gallons per person, per day. Consider bringing your own water into the park and refilling RV tanks outside the park.",
+        "category": "Information",
+        "url": "",
+        "parkCode": "grsm"
+      }
+    ]
   }
 ];

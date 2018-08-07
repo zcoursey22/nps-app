@@ -36,7 +36,7 @@ class Weather extends Component {
     else if (condition === 'clear') {
       if (hours >= 22 || hours < 5) return ['#001', '#125'];
       if (hours >= 20) return ['#037', '#36a'];
-      if (hours < 10) return ['#5af', '#a7b'];
+      if (hours < 11) return ['#5af', '#a7b'];
       return ['#49f', '#38d'];
     } else {
       if (condition === 'partially cloudy') return (hours >= 20 || hours < 5 ? ['#001', '#245'] : ['#69e', '#58c']);
@@ -51,7 +51,7 @@ class Weather extends Component {
     const condition = this.props.park.weather.conditions;
     if (condition === 'clear') {
       if (hours >= 20 || hours < 5) return 'https://image.flaticon.com/icons/svg/997/997096.svg';
-      if (hours < 10) return 'https://image.flaticon.com/icons/svg/136/136734.svg';
+      if (hours < 11) return 'https://image.flaticon.com/icons/svg/136/136734.svg';
       return 'https://image.flaticon.com/icons/svg/136/136723.svg';
     } else if (condition === 'partially cloudy') {
       if (hours >= 20 || hours < 5) return 'https://image.flaticon.com/icons/svg/414/414967.svg';

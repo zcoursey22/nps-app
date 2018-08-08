@@ -54,8 +54,7 @@ class Park extends Component {
           weatherInfo: data.weatherInfo,
           name: data.name,
           bannerImg: "",
-          alerts: [],
-          weather: {}
+          alerts: []
         }
         this.setState({
           park: park

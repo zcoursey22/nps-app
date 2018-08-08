@@ -24,7 +24,7 @@ class Weather extends Component {
     });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     setInterval(this.getWeather(), 600000);
     setInterval(() => {
       this.setState({
@@ -38,7 +38,6 @@ class Weather extends Component {
     const url = `http://api.openweathermap.org/data/2.5/weather?lat=${this.props.park.lat}&lon=${this.props.park.long}&APPID=${config.openWeatherMap}&units=imperial`;
     axios.get(url)
       .then(res => {
-        console.log(res.data);
         this.setState({
           weather: res.data
         });

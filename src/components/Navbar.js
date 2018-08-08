@@ -100,6 +100,8 @@ class Navbar extends Component {
       right: -13px;
       border-top: 1px solid #ddd;
       border-bottom-left-radius: 50px;
+      max-height: 36vh;
+      overflow: scroll;
       > * {
         border: 1px solid #ddd;
         border-top: 0;

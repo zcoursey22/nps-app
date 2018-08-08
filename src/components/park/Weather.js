@@ -25,7 +25,7 @@ class Weather extends Component {
   }
 
   componentWillMount() {
-    this.getWeather();
+    setInterval(this.getWeather(), 600000);
     setInterval(() => {
       this.setState({
         sky: this.generateSky(),
@@ -167,11 +167,11 @@ class Weather extends Component {
         <div id="other-weather">
           <div>
             <img src="https://www.iconsdb.com/icons/preview/white/rain-xxl.png"/>
-            <p>{this.props.park.weather.precipitation}%</p>
+            <p>%</p>
           </div>
           <div>
             <img src="https://www.iconsdb.com/icons/preview/white/wind-turbine-xxl.png"/>
-            <p>{this.state.weather.wind.speed}mph</p>
+            <p>{Math.round(this.state.weather.wind.speed)}mph</p>
           </div>
         </div>
       </WeatherContainer>

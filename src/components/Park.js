@@ -4,11 +4,11 @@ import Banner from './park/Banner';
 import About from './park/About';
 import Weather from './park/Weather';
 import Alerts from './park/Alerts';
-import Map from './park/Map';
 
 import axios from 'axios';
 import config from '../config';
 import parkData from '../sampleParkData';
+import getImage from '../images';
 
 class Park extends Component {
   constructor(props) {
@@ -50,21 +50,22 @@ class Park extends Component {
           directionsInfo: data.directionsInfo,
           directionsUrl: data.directionsUrl,
           fullName: data.fullName,
-          url: "https://www.nps.gov/yose/index.htm",
+          url: data.url,
           weatherInfo: data.weatherInfo,
           name: data.name,
-          bannerImg: "",
+          bannerImg: getImage(data.parkCode),
           alerts: []
-        }
+        };
         this.setState({
           park: park
-        }, console.log(park));
+        });
       });
   }
 
   render() {
     const ParkContainer = styled.div`
       margin: 0 10vw;
+      padding-bottom: 25px;
       overflow: hidden;
       display: flex;
       flex-direction: row;
@@ -91,13 +92,12 @@ class Park extends Component {
       <ParkContainer>
         <div>
           <h1>{this.state.park.fullName}</h1>
-          <h2>{this.state.park.states}</h2>
+          <h2>{this.state.park.states.join(', ')}</h2>
         </div>
         <Banner park={this.state.park}></Banner>
         <About park={this.state.park}></About>
         <Weather park={this.state.park}></Weather>
         <Alerts park={this.state.park}></Alerts>
-        <Map park={this.state.park}></Map>
       </ParkContainer>
     );
   }

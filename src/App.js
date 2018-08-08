@@ -10,7 +10,7 @@ import Error from './components/Error';
 import Navbar from './components/Navbar';
 import Park from './components/Park';
 
-import config from './config'
+import config from './config';
 import parkData from './sampleParkData';
 
 const Body = styled.div`
